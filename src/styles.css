@@ -1,0 +1,191 @@
+/* Скидання та базові налаштування */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Контейнер всього додатку */
+.app-container {
+    display: flex;
+    height: 100vh; /* Заповнити весь екран */
+}
+
+/* Бокова панель */
+.sidebar {
+    width: 250px;
+    background-color: #1f1f1f;
+    color: #fff;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.sidebar-section {
+    margin-bottom: 2rem;
+}
+
+.sidebar-section h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.sidebar-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.sidebar-section li {
+    margin-bottom: 0.25rem;
+}
+
+/* Основна частина */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка календаря */
+.calendar-header {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.date-info button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.view-switch button {
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.view-switch button.active {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+/* Основна зона календаря */
+.calendar-view {
+    flex: 1;
+    background-color: #fafafa;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Сітка днів (тижневий вигляд) */
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    flex: 1;
+}
+
+.calendar-day {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.day-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.event-card {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.25rem;
+    border-radius: 4px;
+    margin-bottom: 0.25rem;
+}
+.calendar-container {
+    width: 100%;
+    overflow: auto; /* Якщо годин або днів багато, з'явиться скрол */
+}
+
+/*
+  Сітка: перший стовпець (time-column) + 7 стовпців для кожного дня
+  Ширина першого стовпця (для часу) ~60px, решта - рівномірно
+*/
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    border: 1px solid #ccc;
+    min-height: 600px; /* Приклад, щоб сітка не стискалася надто сильно */
+}
+
+/* Ліва колонка з мітками часу */
+.time-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Порожній заголовок, що збігається за розміром із .day-header */
+.header {
+    height: 40px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Кожен часовий слот зліва */
+.time-slot {
+    color: #000;
+    height: 60px; /* Висота одного слоту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+/* Колонка для кожного дня */
+.day-column {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ccc;
+}
+
+/* Шапка дня (Mon, Tue, тощо) */
+.day-header {
+    color: #1a1a1a;
+    height: 40px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Кожен часовий слот у колонці дня */
+.day-slot {
+    color: #1a1a1a;
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    position: relative; /* Якщо потрібно буде розміщувати події всередині */
+    /* За потреби можна зробити hover або клік */
+}

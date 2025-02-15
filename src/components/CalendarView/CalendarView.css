@@ -1,0 +1,56 @@
+.calendar-view {
+    width: 100%;
+    overflow: auto;
+    background: #fafafa;
+    min-height: 600px;
+}
+
+/* Сітка: 1 колонка часу + 7 колонок днів */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    border: 1px solid #ccc;
+}
+
+.time-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f0f0f0;
+}
+
+.time-slot {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.day-column {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #ccc;
+}
+
+.day-header {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.day-slot {
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
